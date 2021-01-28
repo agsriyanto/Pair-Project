@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task Name</title>
+    <link rel="stylesheet" href="../partials//style.css" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <nav>
+        <label class="logo">Admin: <%= data.Admin.name %></label>
+        <ul>
+            <li><a href="/admin/<%= data.Admin.username %>/home">Task</a></li>
+            <li><a href="/admin/<%= data.Admin.username %>/createTask">Create Task</a></li>
+            <li><a href="/login/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- <nav>
+        <a href="/admin/<%= data.Admin.username %>/home">Task</a>
+        <a href="/admin/<%= data.Admin.username %>/createTask">Create Task</a>
+        <a href="/login/logout">Logout</a>
+    </nav> -->
+
+    <form action="/admin/<%= data.id %>/edit/<%= data.Admin.username %>" method="POST">
+        <div class="container contact">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="contact-info">
+                        <h2>Edit Task</h2>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="contact-form">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="fname">Task Name:</label>
+                            <div class="col-sm-10">          
+                            <input type="text" class="form-control" value="<%= data.task_name %>" id="fname" placeholder="Enter Task Name" name="task_name">
+                          </div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                                <a href="/admin/<%= data.username %>/home"><button type="" class="btn btn-danger">Cancel</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <style>
+            body{
+                background-color: #ffffff;
+            }
+            .contact{
+                padding: 4%;
+                height: 400px;
+            }
+            .col-md-3{
+                background: #ffffff;
+                padding: 4%;
+                border-top-left-radius: 0.5rem;
+                border-bottom-left-radius: 0.5rem;
+            }
+            .contact-info{
+                margin-top:10%;
+            }
+            .contact-info img{
+                margin-bottom: 15%;
+            }
+            .contact-info h2{
+                margin-bottom: 10%;
+            }
+            .col-md-9{
+                background: #fff;
+                padding: 3%;
+                border-top-right-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
+            }
+            .contact-form label{
+                font-weight:600;
+            }
+            .contact-form button{
+                background: #25274d;
+                color: #fff;
+                font-weight: 600;
+                width: 25%;
+            }
+            .contact-form button:focus{
+                box-shadow:none;
+            }
+            .main-content {
+            padding-top: 30px;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        nav {
+            height: 60px;
+            width: 100%;
+        }
+        label.logo {
+            font-size: 25px;
+            line-height: 80px;
+            padding: 0 30px;
+            font-weight: bold;
+        }
+        nav ul {
+            float: right;
+            margin-right: 20px;
+        }
+        nav ul li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 15px;
+        }
+        </style>
+</body>
+</html>

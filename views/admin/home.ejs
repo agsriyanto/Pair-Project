@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link rel="stylesheet" href="../partials/style.css" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <nav>
+        <label class="logo">Welcome, <%= data.name %></label>
+        <ul>
+            <li><a href="/admin/<%= data.username %>/home">Task</a></li>
+            <li><a href="/admin/<%= data.username %>/createTask">Create Task</a></li>
+            <li><a href="/login/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <table id="customers">
+        <tr>
+          <th>Task Name</th>
+          <th>Options</th>
+        </tr>
+        <% for(let i of data.Tasks) {%>
+        <tr>
+            <td><%= i.task_name %></td>
+            <td>
+                <a href="/admin/<%= i.id %>/task"><button>See Task</button></a>
+                <a href="/admin/<%= i.id %>/addUserToTask"><button>Add Worker</button></a>
+                <a href="/admin/<%= i.id %>/deleteTask/<%= data.username %>" onclick="return confirm('R u sure want to delete ?')"><button>Delete</button></a>
+                <a href="/admin/<%= i.id %>/edit"><button>Edit Task Name</button></a>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+    <style>
+        #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #5F9EA0;
+        color: white;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        nav {
+            height: 60px;
+            width: 100%;
+        }
+        label.logo {
+            font-size: 25px;
+            line-height: 80px;
+            padding: 0 30px;
+            font-weight: bold;
+        }
+        nav ul {
+            float: right;
+            margin-right: 20px;
+        }
+        nav ul li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 15px;
+        }
+
+    </style>
+</body>
+</html>

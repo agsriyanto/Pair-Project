@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Worker to Task</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <nav>
+        <label class="logo">Welcome, <%= dataAdmin.name %></label>
+        <ul>
+            <li><a href="/admin/<%= dataAdmin.username %>/home">Task</a></li>
+            <li><a href="/admin/<%= dataAdmin.username %>/createTask">Create Task</a></li>
+            <li><a href="/login/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <form class="main-content" action="/admin/<%= dataAdmin.username %>/addUserToTask/<%= dataTask.task_name %>" method="POST">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Assign to User</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i of dataTask.Users) {%>
+                        <tr>
+                            <td><%= dataTask.task_name %></td>
+                            <td><%= i.username %></td>
+                        </tr>
+                        <% } %>
+                        <tr>
+                            <td> </td>
+                            <td>
+                                <select name="UserId" id="">
+                                    <% for(let i of dataUser) {%>
+                                        <option value="<%= i.id %>"><%= i.username %></option>
+                                    <% } %>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="" class="btn btn-danger"><a href="/admin/<%= dataAdmin.username %>/home">Cancel</button></a>
+                                <!-- <a href="/admin/<%= dataAdmin.username %>/home"><button class="btn btn-danger">Cancel</button></a> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    /* .main-content {
+            padding-top: 30px;
+        } */
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        nav {
+            height: 60px;
+            width: 100%;
+        }
+        label.logo {
+            font-size: 30px;
+            line-height: 80px;
+            padding: 0 30px;
+            font-weight: bold;
+        }
+        nav ul {
+            float: right;
+            margin-right: 20px;
+        }
+        nav ul li {
+            display: inline-block;
+            /* line-height: 20px; */
+            margin: 0 15px;
+        }
+</style>
+</body>
+</html>

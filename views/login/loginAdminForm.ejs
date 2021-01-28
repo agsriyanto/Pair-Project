@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="../partials/style.css" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <nav>
+        <!-- <label class="logo">Welcome Apps Work Management</label> -->
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/register/admin">Admin</a></li>
+            <li><a href="/register/user">User</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="main">
+                <h3>Please Log In, or <a href="/register/admin">Sign Up</a></h3>
+                <div class="login-or">
+                    <hr class="hr-or">
+                    <span class="span-or"></span>
+                </div>
+      
+                <form role="form" action="/login/admin" method="POST">
+                    <div class="form-group">
+                        <label for="inputUsernameEmail">Username</label>
+                        <input type="text"  name="username" class="form-control" id="inputUsernameEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Password</label>
+                        <input type="password"  name="password" class="form-control" id="inputPassword">
+                    </div>
+                    <button type="submit" class="btn btn btn-primary center">
+                        Log In
+                    </button>
+                </form>
+          </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            padding-top: 15px;
+            font-size: 12px
+        }
+        .main {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+        .login-or {
+            position: relative;
+            font-size: 18px;
+            color: #aaa;
+            margin-top: 10px;
+                    margin-bottom: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .span-or {
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: -2px;
+            margin-left: -25px;
+            background-color: #fff;
+            width: 50px;
+            text-align: center;
+        }
+        .hr-or {
+            background-color: #cdcdcd;
+            height: 1px;
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+        button {
+            text-align: center;
+            width: 100%;
+        }
+        h3 {
+            text-align: center;
+            line-height: 300%;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        nav {
+            font-size: 15px;
+            height: 60px;
+            width: 100%;
+        }
+        label.logo {
+            font-size: 30px;
+            line-height: 80px;
+            padding: 0 30px;
+            font-weight: bold;
+        }
+        nav ul {
+            float: right;
+            padding-top: 30px;
+            margin-right: 20px;
+        }
+        nav ul li {
+            display: inline-block;
+            line-height: 20px;
+            margin: 0 15px;
+        }
+    </style>
+</body>
+</html>

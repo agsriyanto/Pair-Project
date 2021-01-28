@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <div>
+        <label for="" class="logo">Welcome, <%= data.name %></label>
+        <!-- <h1>Welcome, <%= data.name %></h1> -->
+    </div>
+    <div class="btn-toolbar">
+        <a href="/user/<%= data.username %>/home"><button class="btn">Tasks</button></a>
+        <a href="/login/logout"><button class="btn">Logout</button></a>
+    </div>
+    <div class="well">
+        <table class="table">
+          <thead>
+            <tr>
+              <!-- <th>#</th> -->
+              <th>Task Name</th>
+              <th style="width: 36px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i of data.Tasks) {%>
+                <tr>
+                    <td><%=i.task_name%></td>
+                </tr>
+            <% } %>
+          </tbody>
+        </table>
+    </div>
+    <style>
+        .btn-toolbar {
+            line-height: 50px;
+        }
+        .logo {
+            font-size: 25px;
+            font-size: 25px;
+            line-height: 60px;
+            padding: 0 30px;
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>
